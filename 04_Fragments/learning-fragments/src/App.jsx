@@ -4,19 +4,20 @@ import FoodItems from "./components/FoodItems";
 import ErrorMessage from "./components/ErrorMessage";
 function App() {
   // let foodItems=[]
-  // let foodItems = [
-  //   "Lentils",
-  //   "Green Vegetables",
-  //   "Fruits",
-  //   "Dry Nuts",
-  //   "Eggs and Milk",
-  //   "Tender Meat"
-  // ];
+  let foodItems = [
+    "Lentils",
+    "Green Vegetables",
+    "Fruits",
+    "Dry Nuts",
+    "Eggs and Milk",
+    "Tender Meat",
+    "Oats"
+  ];
   return (
     <>
       <h1>Healthy Foods</h1>
-      <ErrorMessage></ErrorMessage>
-      <FoodItems></FoodItems>
+      <ErrorMessage items={foodItems}></ErrorMessage>
+      <FoodItems items={foodItems}></FoodItems>
     </>
   );
 }
