@@ -1,8 +1,8 @@
 import TodoItem from "./TodoItem";
-const TodoItems = ({ TodoItems }) => {
+const TodoItems = ({ todoItems }) => {
   return (
     <div className="items-container">
-      {TodoItems.map((item) => (
+      {todoItems.map((item) => (
         <TodoItem TodoDate={item.dueDate} TodoName={item.name}></TodoItem>
       ))}
     </div>
