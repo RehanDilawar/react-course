@@ -1,14 +1,12 @@
 
 input{
-  width: 90%;
-}
-
-.items-container{
+  width: 100%;
   text-align: left;
 }
 
 .kg-row{
-  margin: 5px 5px;
+  background-color: aqua;
+  margin: 10px 5px;
 
 }
 

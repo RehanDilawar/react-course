@@ -19,9 +19,9 @@ function App() {
   ];
   return (
     <center className="todo-container">
-      <TodoItems todoItems={todoItems}></TodoItems>
       <AppName />
       <AddTodo />
+      <TodoItems todoItems={todoItems}></TodoItems>
     </center>
   );
 }
