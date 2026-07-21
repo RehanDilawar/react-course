@@ -1,9 +1,9 @@
 import css from "./FoodInput.module.css"
-const FoodInput = ({handleOnChange}) => {
+const FoodInput = ({handleOnKeyDown}) => {
 
   return (
     <input type='text' placeholder="Enter Custom Food" className={css.foodInput}
-    onChange={handleOnChange}
+    onKeyDown={handleOnKeyDown}
     ></input>
   )
 }

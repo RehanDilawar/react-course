@@ -7,29 +7,22 @@ import FoodInput from "./components/FoodInput";
 import { useState } from "react";
 function App() {
   // let foodItems=[]
-  let foodItems = [
-    "Lentils",
-    "Green Vegetables",
-    "Fruits",
-    "Dry Nuts",
-    "Eggs and Milk",
-    "Tender Meat",
-    "Oats",
-  ];
-  const [textToShow, setTextState] = useState("Food Item entered by user");
-  console.log(`current value of textState:  ${textToShow}`);
+  const [foodItems, setFoodItems] = useState([]);
 
-  const handleOnChange = (event) => {
-    console.log(event.target.value);
-    setTextState(event.target.value);
+  const OnKeyDown = (event) => {
+    if (event.key==='Enter'){
+      let newFood=event.target.value;
+      event.target.value="";
+      let newItems=[...foodItems,newFood];
+      setFoodItems(newItems);
+    }
   };
   return (
     <>
       <Container>
         <h1 className="food-heading">Healthy Foods</h1>
+        <FoodInput handleOnKeyDown={OnKeyDown}></FoodInput>
         <ErrorMessage items={foodItems}></ErrorMessage>
-        <FoodInput handleOnChange={handleOnChange}></FoodInput>
-        <p>{textToShow}</p>
         <FoodItems items={foodItems}></FoodItems>
       </Container>
       {/* <Container>
