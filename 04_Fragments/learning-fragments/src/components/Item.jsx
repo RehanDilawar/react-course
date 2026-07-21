@@ -1,7 +1,7 @@
 import css from "./Item.module.css"
-const Item = ({FoodItem, handlyBuyButtonClicked}) => {
+const Item = ({FoodItem,bought, handlyBuyButtonClicked}) => {
 
-  return <li className={`${css['kg-item']} list-group-item kg-item`}><span className={css['kg-span']}>{FoodItem}</span>
+  return <li className={`${css['kg-item']} list-group-item ${bought && 'active'}`}><span className={css['kg-span']}>{FoodItem}</span>
   <button className={`${css.button} btn btn-success`}
   onClick={handlyBuyButtonClicked}
   >Buy</button>
