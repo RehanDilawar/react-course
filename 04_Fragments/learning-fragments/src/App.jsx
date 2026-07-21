@@ -15,12 +15,15 @@ function App() {
     "Tender Meat",
     "Oats",
   ];
+    const handleOnChange=(event)=>{
+    console.log(event.target.value);
+  }
   return (
     <>
       <Container>
         <h1 className="food-heading">Healthy Foods</h1>
         <ErrorMessage items={foodItems}></ErrorMessage>
-        <FoodInput></FoodInput>
+        <FoodInput handleOnChange={handleOnChange}></FoodInput>
         <FoodItems items={foodItems}></FoodItems>
       </Container>
       {/* <Container>
