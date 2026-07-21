@@ -21,10 +21,10 @@ function App() {
         <ErrorMessage items={foodItems}></ErrorMessage>
         <FoodItems items={foodItems}></FoodItems>
       </Container>
-      <Container>
+      {/* <Container>
         <p>Above is the list of healthy foods that are good for your body and well
         being</p>
-      </Container>
+      </Container> */}
     </>
   );
 }
