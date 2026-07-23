@@ -18,14 +18,19 @@ function App() {
       dueDate: "04/10/2026",
     },
   ];
-  const [todoItems,setTodoItems]=useState(initialTodoItems);
-  const handleNewItem=(itemName,itemDueDate)=>{
-    console.log(`New item added :${itemName} and Date: ${itemDueDate}`)
+  const [todoItems, setTodoItems] = useState(initialTodoItems);
+  const handleNewItem = (itemName, itemDueDate) => {
+    console.log(`New item added :${itemName} and Date: ${itemDueDate}`);
+    const newTodoItems = [
+      ...todoItems,
+      { name: itemName, dueDate: itemDueDate },
+    ];
+    setTodoItems(newTodoItems)
   };
   return (
     <center className="todo-container">
       <AppName />
-      <AddTodo onNewItem={handleNewItem}/>
+      <AddTodo onNewItem={handleNewItem} />
       <TodoItems todoItems={todoItems}></TodoItems>
     </center>
   );
