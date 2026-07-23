@@ -5,11 +5,15 @@ input{
 }
 
 .kg-row{
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
   margin: 10px 5px;
 
 }
 
 .kg-button{
   min-width: 80px;
+}
+
+.main{
+  background-color: blanchedalmond;
 }
