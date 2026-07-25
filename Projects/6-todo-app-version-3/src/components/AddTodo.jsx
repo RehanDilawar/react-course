@@ -1,33 +1,30 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { MdAddTask } from "react-icons/md";
 function AddTodo({ onNewItem }) {
-  const [todoName, settodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const handleNameChange=(event)=>{
-    settodoName(event.target.value)
-  }
-  const handleDateChange=(event)=>{
-    setDueDate(event.target.value)
-  }
+  const todoNameElement = useRef(null);
+  const dueDateElement = useRef(null);
   const handleAddButtonClicked=(event)=>{
     event.preventDefault(); 
+    const todoName=todoNameElement.current.value;
+    const dueDate=dueDateElement.current.value; 
+    todoNameElement.current.value="";
+    dueDateElement.current.value="";  
     onNewItem(todoName, dueDate)
-    setDueDate("");
-    settodoName("");
   }
   return (
     <div className="container">
       <form className="row kg-row" 
             onSubmit={handleAddButtonClicked}>
         <div className="col-6">
-          <input type="text" placeholder="Entere Todo here" 
-          value={todoName}
-          onChange={handleNameChange}/>
+          <input type="text"
+          ref={todoNameElement}
+          placeholder="Entere Todo here" 
+          />
         </div>
         <div className="col-4">
           <input type="date"
-          value={dueDate} 
-          onChange={handleDateChange}/>
+          ref={dueDateElement}
+          />
         </div>
         <div className="col-2">
           <button
