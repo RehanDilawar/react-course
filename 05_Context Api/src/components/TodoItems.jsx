@@ -2,12 +2,12 @@ import TodoItem from "./TodoItem";
 import css from "./TodoItems.module.css"
 import { useContext } from "react";
 import { TodoItemsContext } from "../store/todo-items-store";
-const TodoItems = ({ onDeleteClick }) => {
+const TodoItems = () => {
   const {todoItems} = useContext(TodoItemsContext);
   return (
     <div className={css.itemsContainer}>
       {todoItems.map((item) => (
-        <TodoItem TodoDate={item.dueDate} TodoName={item.name} onDeleteClick={onDeleteClick} key={item.name}></TodoItem>
+        <TodoItem TodoDate={item.dueDate} TodoName={item.name} key={item.name}></TodoItem>
       ))}
     </div>
   );
