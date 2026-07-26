@@ -1,7 +1,10 @@
 import css from "./WelcomeMessage.module.css"
+import { useContext } from "react";
+import { TodoItemsContext } from "../store/todo-items-store";
 const WelcomeMessage = () => {
+  const {todoItems} = useContext(TodoItemsContext);
   return (
-    <p className={css.message}>Enjoy Your Day!</p>
+    todoItems.length === 0 && <p className={css.message}>Enjoy Your Day!</p>
   )
 }
 

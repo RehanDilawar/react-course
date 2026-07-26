@@ -1,6 +1,9 @@
 import TodoItem from "./TodoItem";
 import css from "./TodoItems.module.css"
-const TodoItems = ({ todoItems, onDeleteClick }) => {
+import { useContext } from "react";
+import { TodoItemsContext } from "../store/todo-items-store";
+const TodoItems = ({ onDeleteClick }) => {
+  const {todoItems} = useContext(TodoItemsContext);
   return (
     <div className={css.itemsContainer}>
       {todoItems.map((item) => (
