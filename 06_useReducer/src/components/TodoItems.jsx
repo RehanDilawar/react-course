@@ -3,7 +3,7 @@ import css from "./TodoItems.module.css"
 import { useContext } from "react";
 import { TodoItemsContext } from "../store/todo-items-store";
 const TodoItems = () => {
-  const {todoItems} = useContext(TodoItemsContext);
+  const { todoItems } = useContext(TodoItemsContext);
   return (
     <div className={css.itemsContainer}>
       {todoItems.map((item) => (
