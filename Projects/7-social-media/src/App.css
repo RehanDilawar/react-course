@@ -10,3 +10,29 @@
     min-height: 1200px;
     min-width: 320px;
 }
+
+.post-card {
+    margin: 20px 50px;
+    min-width: 30rem;
+    border-radius: 10px;
+}
+
+.hashtag {
+    margin: 0px 3px;
+}
+
+.reactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 0 0;
+    cursor: pointer;
+    border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #28a745;
+}
+
+.reactions:hover {
+    background-color: #28a745;
+    color: aliceblue;
+}
