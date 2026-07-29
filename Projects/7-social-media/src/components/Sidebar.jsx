@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sidebar = () => {
+const Sidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
       class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -22,7 +22,12 @@ const Sidebar = () => {
         {" "}
         <li class="nav-item">
           {" "}
-          <a href="#" class="nav-link active" aria-current="page">
+          <a
+            href="#"
+            class={`nav-link text-white ${selectedTab === "Home" && "active"}`}
+            aria-current="page"
+            onClick={() => setSelectedTab("Home")}
+          >
             {" "}
             <svg
               class="bi pe-none me-2"
@@ -37,7 +42,11 @@ const Sidebar = () => {
         </li>{" "}
         <li>
           {" "}
-          <a href="#" class="nav-link text-white">
+          <a
+            href="#"
+            class={`nav-link text-white ${selectedTab === "Create Post" && "active"}`}
+            onClick={() => setSelectedTab("Create Post")}
+          >
             {" "}
             <svg
               class="bi pe-none me-2"
