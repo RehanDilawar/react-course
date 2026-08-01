@@ -23,7 +23,11 @@ const Post = ({ post }) => {
           </span>
         ))}
         <div className="alert alert-success reactions" role="alert">
-          {post.reactions} reactions
+          This post has been reacted to by{" "}
+          {typeof post.reactions === "object"
+            ? post.reactions.likes
+            : post.reactions}{" "}
+          people.
         </div>
       </div>
     </div>
