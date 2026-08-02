@@ -1,11 +1,8 @@
-const WelcomeMessage = ({ onGetPosts }) => {
+const WelcomeMessage = () => {
   return (
     <>
       <center style={{ marginTop: "100px", marginBottom: "100px" }}>
         <h1>There are no posts.</h1>
-        <button type="button" className="btn btn-primary" onClick={onGetPosts}>
-          Get Posts from Server
-        </button>
       </center>
     </>
   );
