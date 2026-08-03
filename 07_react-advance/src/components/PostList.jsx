@@ -7,14 +7,16 @@ const PostList = () => {
   const { postList, addInitialPosts } = useContext(PostListData);
   const [dataFetched, setDataFetched] = useState(true);
   useEffect(() => {
-    fetch("https://dummyjson.com/posts")
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch("https://dummyjson.com/posts", { signal })
       .then((res) => res.json())
       .then((data) => {
         addInitialPosts(data.posts);
         setDataFetched(false);
       });
     return () => {
-      console.log("Cleanup");
+      controller.abort();
     };
   }, []);
 
