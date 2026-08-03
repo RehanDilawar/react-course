@@ -13,6 +13,9 @@ const PostList = () => {
         addInitialPosts(data.posts);
         setDataFetched(false);
       });
+    return () => {
+      console.log("Cleanup");
+    };
   }, []);
 
   return (
