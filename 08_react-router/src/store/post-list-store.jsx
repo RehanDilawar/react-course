@@ -1,6 +1,14 @@
-import { createContext, useCallback, useMemo, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useMemo,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 export const PostList = createContext({
   postList: [],
+  dataFetched: false,
   addPost: () => {},
   deletePost: () => {},
 });
@@ -21,17 +29,12 @@ const postListReducer = (currentPostList, action) => {
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-  const addPost = (userId, title, body, reactions, tags) => {
+
+  const [dataFetched, setDataFetched] = useState(true);
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        userId: userId,
-        title: title,
-        body: body,
-        reactions: reactions,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 
@@ -53,6 +56,19 @@ const PostListProvider = ({ children }) => {
     },
     [dispatchPostList],
   );
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetch("https://dummyjson.com/posts", { signal })
+      .then((res) => res.json())
+      .then((data) => {
+        addInitialPosts(data.posts);
+        setDataFetched(false);
+      });
+    return () => {
+      controller.abort();
+    };
+  }, []);
 
   // const arr = [2, 1, 4, 7, 4, 9, 8];
   // const sortedarr = useMemo(() => arr.sort(), [arr]);
@@ -60,9 +76,9 @@ const PostListProvider = ({ children }) => {
     <PostList.Provider
       value={{
         postList,
+        dataFetched,
         addPost,
         deletePost,
-        addInitialPosts,
       }}
     >
       {children}
