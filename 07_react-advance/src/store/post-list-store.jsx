@@ -42,14 +42,17 @@ const PostListProvider = ({ children }) => {
     });
   };
 
-  const deletePost = (postID) => {
-    dispatchPostList({
-      type: "DELETE_POST",
-      payload: {
-        postID,
-      },
-    });
-  };
+  const deletePost = useCallback(
+    (postID) => {
+      dispatchPostList({
+        type: "DELETE_POST",
+        payload: {
+          postID,
+        },
+      });
+    },
+    [dispatchPostList],
+  );
 
   return (
     <PostList.Provider
