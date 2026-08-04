@@ -54,6 +54,8 @@ const PostListProvider = ({ children }) => {
     [dispatchPostList],
   );
 
+  const arr = [2, 1, 4, 7, 4, 9, 8];
+  const sortedarr = useMemo(() => arr.sort(), [arr]);
   return (
     <PostList.Provider
       value={{
