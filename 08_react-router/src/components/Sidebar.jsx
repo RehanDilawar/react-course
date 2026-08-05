@@ -1,6 +1,6 @@
 import React from "react";
-
-const Sidebar = ({ selectedTab, setSelectedTab }) => {
+import { Link } from "react-router-dom";
+const Sidebar = () => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
@@ -27,7 +27,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         {" "}
         <li className="nav-item">
           {" "}
-          <a href="/" className="nav-link text-white">
+          <Link to="/" className="nav-link text-white">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -38,11 +38,11 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
         <li>
           {" "}
-          <a href="/create-post" className="nav-link text-white">
+          <Link to="/create-post" className="nav-link text-white">
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -53,7 +53,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
       </ul>{" "}
       <hr />{" "}
