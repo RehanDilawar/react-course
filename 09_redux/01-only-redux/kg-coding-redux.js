@@ -11,6 +11,10 @@ const reducer = (store = INITIAL_VALUE, action) => {
         newStore = {
             counter: store.counter + 1
         };
+    } else if (action.type === "DECREMENT") {
+        newStore = {
+            counter: store.counter - 1
+        };
     }
 
     return newStore;
@@ -31,7 +35,7 @@ store.dispatch({
 });
 
 store.dispatch({
-    type: "INCREMENT",
+    type: "DECREMENT",
 });
 
 store.dispatch({
