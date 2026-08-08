@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 
 const Controls = () => {
   const dispatch = useDispatch();
+  const inputElement = useRef(null);
 
   const handleIncrement = () => {
     dispatch({ type: "INCREMENT" });
@@ -10,25 +11,51 @@ const Controls = () => {
   const handleDecrement = () => {
     dispatch({ type: "DECREMENT" });
   };
+  const handleAdd = () => {
+    dispatch({ type: "ADD", payload: inputElement.current.value });
+    inputElement.current.value = "";
+  };
+  const handleSubtract = () => {
+    dispatch({ type: "SUBTRACT", payload: inputElement.current.value });
+    inputElement.current.value = "";
+  };
   return (
-    <div>
+    <>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-success"
           onClick={handleIncrement}
         >
           +1
         </button>
         <button
           type="button"
-          className="btn btn-success"
+          className="btn btn-danger"
           onClick={handleDecrement}
         >
           -1
         </button>
       </div>
-    </div>
+      <div className="d-grid gap-2 d-sm-flex justify-content-sm-center control-row">
+        <input
+          type="number"
+          className="form-control"
+          placeholder="Enter a value"
+          ref={inputElement}
+        />
+        <button type="button" className="btn btn-info" onClick={handleAdd}>
+          Add
+        </button>
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={handleSubtract}
+        >
+          Subtract
+        </button>
+      </div>
+    </>
   );
 };
 
