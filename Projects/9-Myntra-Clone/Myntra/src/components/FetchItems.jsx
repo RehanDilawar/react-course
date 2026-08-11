@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { itemsActions } from "../store/ItemsSlice";
+import { fetchStatusActions } from "../store/FetchStatusSlice";
 const FetchItems = () => {
   const fetchStatus = useSelector((store) => store.fetchStatus);
   const dispatch = useDispatch();
@@ -10,22 +12,20 @@ const FetchItems = () => {
 
     const controller = new AbortController();
     const signal = controller.signal;
+    dispatch(fetchStatusActions.markFetchingStarted());
     fetch("http://localhost:8000/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
-        console.log("items fetched", items);
+        dispatch(itemsActions.addInitialItems(items));
+        dispatch(fetchStatusActions.markFetchDone());
+        dispatch(fetchStatusActions.markFetchingFinished());
       });
     return () => {
       controller.abort();
     };
-  }, [fetchStatus]);
+  }, [fetchStatus.fetchDone]);
 
-  return (
-    <>
-      <div>Fetch Done: {fetchStatus.fetchDone}</div>
-      <div>Currently Fetching: {fetchStatus.currentlyFetching}</div>
-    </>
-  );
+  return <></>;
 };
 
 export default FetchItems;
