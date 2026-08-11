@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { bagActions } from "../store/bagSlicee";
+import { MdAddShoppingCart } from "react-icons/md";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+
 const HomeItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(bagActions.addToBag(item.id));
+  };
   return (
     <div className="item-container">
       <img className="item-image" src={item.image} alt="item image" />
@@ -13,12 +22,16 @@ const HomeItem = ({ item }) => {
         <span className="discount">({item.discount_percentage}% OFF)</span>
       </div>
       <button
-        className="btn-add-bag"
-        onClick={() => {
-          console.log("Item was clicked");
-        }}
+        type="button"
+        className="btn btn-success btn-add-bag"
+        onClick={handleAddToCart}
       >
+        <MdAddShoppingCart />
         Add to Bag
+      </button>
+      <button type="button" className="btn btn-danger btn-add-bag">
+        <MdOutlineRemoveShoppingCart />
+        Remove
       </button>
     </div>
   );
