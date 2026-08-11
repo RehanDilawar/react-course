@@ -1,4 +1,12 @@
+import { useDispatch } from "react-redux";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { bagActions } from "../store/bagSlicee";
+
 const BagItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const handleRemoveItem = () => {
+    dispatch(bagActions.removeFromBag(item.id));
+  };
   return (
     <div className="bag-item-container">
       <div className="item-left-part">
@@ -27,8 +35,8 @@ const BagItem = ({ item }) => {
         </div>
       </div>
 
-      <div className="remove-from-cart" onClick={() => console.log("removed")}>
-        X
+      <div className="remove-from-cart" onClick={handleRemoveItem}>
+        <RiDeleteBin6Line />
       </div>
     </div>
   );
