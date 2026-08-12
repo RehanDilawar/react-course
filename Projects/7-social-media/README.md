@@ -1,16 +1,42 @@
-# React + Vite
+<div align="center">
+  <h1>📱 Project 7: Social Media App 🌍</h1>
+  <p><i>Building a complex, simulated feed mimicking modern social networks.</i></p>
+  
+  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📖 About This Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Time to build something big! This Social Media App project integrates almost all concepts learned so far: mapping large data arrays, complex components, conditional rendering, and advanced styling.
 
-## React Compiler
+### 🌟 Project Highlights:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Post Feeds**: Dynamic rendering of multiple post components based on an array of post objects.
+- **Like & Comment Logic**: Local component state handling interactions like upvoting or commenting.
+- **Advanced Layout**: Using modern CSS to create a realistic feed.
+- **Data Fetching (Mocked or Real)**: Mimicking API calls to load the user's feed.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ How to View
+
+1. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+2. **Start Development Server**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Open in Browser**
+   Open [http://localhost:5173](http://localhost:5173)
+
+---
+
+> _"Connect, share, and code!"_ 💬✨
